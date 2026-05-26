@@ -94,6 +94,8 @@
 </template>
 
 <script setup>
+defineOptions({ name: 'SystemRole' })
+
 import { nextTick, onMounted, reactive, ref, watch } from 'vue'
 import AppPagination from '@/components/AppPagination.vue'
 import { roleApi, menuApi } from '@/api/system'

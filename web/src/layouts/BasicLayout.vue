@@ -9,7 +9,12 @@
         <span v-show="!collapsed" class="font-semibold text-gray-800 truncate">Pure Admin</span>
       </div>
       <el-scrollbar class="flex-1">
-        <el-menu :default-active="activeMenu" :collapse="collapsed" router class="border-none!">
+        <el-menu
+          :default-active="activeMenu"
+          :collapse="collapsed"
+          router
+          class="layout-sidebar-menu border-none!"
+        >
           <SidebarItem v-for="item in permStore.menus" :key="item.id" :item="item" />
         </el-menu>
       </el-scrollbar>
@@ -27,19 +32,7 @@
       </header>
       <LayoutTabs />
       <main class="layout-main flex-1 overflow-auto">
-        <router-view v-slot="{ Component, route: viewRoute }">
-          <transition name="page-slide" mode="out-in">
-            <div
-              :key="viewRoute.meta?.keepAlive ? viewRoute.name : viewRoute.fullPath"
-              class="page-view min-h-0"
-            >
-              <keep-alive v-if="viewRoute.meta?.keepAlive">
-                <component :is="Component" />
-              </keep-alive>
-              <component v-else :is="Component" />
-            </div>
-          </transition>
-        </router-view>
+        <PageRouterView />
       </main>
     </div>
   </div>
@@ -52,6 +45,7 @@ import { resetRouter } from '@/router'
 import { useUserStore } from '@/stores/user'
 import { usePermissionStore } from '@/stores/permission'
 import { useTabsStore } from '@/stores/tabs'
+import PageRouterView from '@/components/PageRouterView.vue'
 import SidebarItem from '@/components/SidebarItem.vue'
 import LayoutTabs from '@/components/LayoutTabs.vue'
 import LayoutBreadcrumb from '@/components/LayoutBreadcrumb.vue'
@@ -90,20 +84,59 @@ async function logout() {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
-.page-slide-enter-active,
-.page-slide-leave-active {
-  transition:
-    opacity 0.22s ease,
-    transform 0.22s ease;
+.layout-sidebar-menu {
+  --sidebar-menu-active-bg: #eef2ff;
+  --sidebar-menu-active-color: var(--el-color-primary);
+  padding: 8px;
+  box-sizing: border-box;
 }
 
-.page-slide-enter-from {
-  opacity: 0;
-  transform: translateX(10px);
+.layout-sidebar-menu:deep(.el-menu-item),
+.layout-sidebar-menu:deep(.el-sub-menu__title) {
+  height: 44px;
+  line-height: 44px;
+  margin-bottom: 4px;
+  border-radius: 8px;
+  color: #4b5563;
 }
 
-.page-slide-leave-to {
-  opacity: 0;
-  transform: translateX(-10px);
+.layout-sidebar-menu:deep(.el-menu-item:hover),
+.layout-sidebar-menu:deep(.el-sub-menu__title:hover) {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.layout-sidebar-menu:deep(.el-menu-item.is-active) {
+  background-color: var(--sidebar-menu-active-bg);
+  color: var(--sidebar-menu-active-color);
+  font-weight: 500;
+}
+
+.layout-sidebar-menu:deep(.el-menu-item.is-active .el-icon) {
+  color: var(--sidebar-menu-active-color);
+}
+
+.layout-sidebar-menu:deep(.el-menu-item.is-active:hover) {
+  background-color: var(--sidebar-menu-active-bg);
+}
+
+.layout-sidebar-menu:deep(.el-sub-menu.is-active > .el-sub-menu__title) {
+  color: var(--sidebar-menu-active-color);
+  font-weight: 500;
+}
+
+.layout-sidebar-menu:deep(.el-sub-menu.is-active > .el-sub-menu__title .el-icon) {
+  color: var(--sidebar-menu-active-color);
+}
+
+.layout-sidebar-menu:deep(.el-sub-menu .el-menu) {
+  padding: 4px 0 4px 8px;
+  background-color: transparent;
+}
+
+.layout-sidebar-menu:deep(.el-sub-menu .el-menu-item) {
+  min-width: auto;
+  height: 40px;
+  line-height: 40px;
 }
 </style>

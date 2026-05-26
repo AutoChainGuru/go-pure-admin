@@ -83,6 +83,8 @@
 </template>
 
 <script setup>
+defineOptions({ name: 'SystemOperLog' })
+
 import { onMounted, reactive, ref } from 'vue'
 import AppPagination from '@/components/AppPagination.vue'
 import { operLogApi } from '@/api/system'

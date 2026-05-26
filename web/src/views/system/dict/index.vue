@@ -114,6 +114,8 @@
 </template>
 
 <script setup>
+defineOptions({ name: 'SystemDict' })
+
 import { nextTick, onMounted, reactive, ref, watch } from 'vue'
 import AppPagination from '@/components/AppPagination.vue'
 import { dictApi } from '@/api/system'

@@ -50,6 +50,8 @@
 </template>
 
 <script setup>
+defineOptions({ name: 'SystemLoginLog' })
+
 import { onMounted, reactive, ref } from 'vue'
 import AppPagination from '@/components/AppPagination.vue'
 import { loginLogApi } from '@/api/system'

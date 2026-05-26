@@ -33,6 +33,8 @@
 </template>
 
 <script setup>
+defineOptions({ name: 'SystemDept' })
+
 import { onMounted, ref } from 'vue'
 import { deptApi } from '@/api/system'
 import { ElMessage, ElMessageBox } from 'element-plus'

@@ -118,6 +118,8 @@
 </template>
 
 <script setup>
+defineOptions({ name: 'SystemMenu' })
+
 import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import * as Icons from '@element-plus/icons-vue'
 import { menuApi } from '@/api/system'

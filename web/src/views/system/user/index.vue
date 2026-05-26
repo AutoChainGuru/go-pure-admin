@@ -76,6 +76,8 @@
 </template>
 
 <script setup>
+defineOptions({ name: 'SystemUser' })
+
 import { onMounted, reactive, ref } from 'vue'
 import AppPagination from '@/components/AppPagination.vue'
 import { userApi, roleApi, deptApi } from '@/api/system'

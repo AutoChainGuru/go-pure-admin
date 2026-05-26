@@ -69,6 +69,7 @@ router.beforeEach(async (to) => {
       permStore.setMenus(authMenus)
       const dynamicRoutes = permStore.generateRoutes(authMenus)
       dynamicRoutes.forEach((r) => router.addRoute('Root', r))
+      permStore.syncKeepAliveFromRouter(router)
       addNotFoundRoute()
       permStore.markRoutesAdded()
       useTabsStore().pruneInvalid(router)

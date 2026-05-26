@@ -24,6 +24,8 @@
 </template>
 
 <script setup>
+defineOptions({ name: 'Dashboard' })
+
 import { useUserStore } from '@/stores/user'
 
 const userStore = useUserStore()

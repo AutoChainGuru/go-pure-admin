@@ -50,6 +50,8 @@
 </template>
 
 <script setup>
+defineOptions({ name: 'UserProfile' })
+
 import { computed, onMounted, reactive, ref } from 'vue'
 import { getProfile, updateProfile, changePassword } from '@/api/auth'
 import { useUserStore } from '@/stores/user'
