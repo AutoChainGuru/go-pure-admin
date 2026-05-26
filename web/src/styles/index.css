@@ -1,0 +1,45 @@
+html,
+body,
+#app {
+  margin: 0;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+:root {
+  --el-color-primary: #4f46e5;
+  /* 与 layout-main 内边距一致，用于查询区/表格区间距 */
+  --layout-content-gap: 8px;
+}
+
+.layout-main {
+  padding: var(--layout-content-gap);
+}
+
+.page-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-content-gap);
+  width: 100%;
+}
+
+.page-row {
+  display: flex;
+  gap: var(--layout-content-gap);
+  min-height: 30rem;
+}
+
+/* 列表筛选：日期时间区间控件固定宽度，避免占满整行 */
+.filter-daterange.el-date-editor--datetimerange {
+  width: 360px !important;
+  max-width: 360px;
+  flex-shrink: 0;
+}
+
+.filter-daterange.el-date-editor--datetimerange .el-range-input {
+  width: 42%;
+}
+
+.filter-daterange.el-date-editor--datetimerange .el-range-separator {
+  padding: 0 2px;
+}

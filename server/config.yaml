@@ -1,0 +1,28 @@
+server:
+  port: 9999
+  mode: debug
+
+database:
+  host: 127.0.0.1
+  port: 5432
+  user: postgres
+  password: hduzmj2026
+  dbname: go_pure_admin
+  sslmode: disable
+
+jwt:
+  secret: go-pure-admin-jwt-secret
+  expire_hours: 72
+
+log:
+  path: logs/app.log
+  level: info
+  max_size: 100
+  max_backups: 30
+  max_age: 30
+  compress: true
+
+cors:
+  allow_origins:
+    - http://localhost:8000
+    - http://127.0.0.1:8000
