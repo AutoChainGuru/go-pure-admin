@@ -14,26 +14,41 @@
       </div>
 
       <el-table v-loading="loading" :data="list" stripe>
-      <el-table-column prop="username" label="用户名" min-width="120" />
-      <el-table-column prop="nickname" label="昵称" min-width="120" />
-      <el-table-column prop="dept.name" label="部门" min-width="120" />
-      <el-table-column label="角色" min-width="160">
-        <template #default="{ row }">
-          <el-tag v-for="r in row.roles || []" :key="r.id" size="small" class="mr-1">{{ r.name }}</el-tag>
-        </template>
-      </el-table-column>
-      <el-table-column label="状态" width="90">
-        <template #default="{ row }">
-          <el-tag :type="row.enabled ? 'success' : 'info'" size="small">{{ row.enabled ? '启用' : '禁用' }}</el-tag>
-        </template>
-      </el-table-column>
-      <el-table-column label="操作" width="160" fixed="right">
-        <template #default="{ row }">
-          <el-button v-auth="'system:user:edit'" link type="primary" @click="openEdit(row)">编辑</el-button>
-          <el-button v-auth="'system:user:delete'" link type="danger" @click="remove(row)">删除</el-button>
-        </template>
-      </el-table-column>
-    </el-table>
+        <el-table-column prop="username" label="用户名" />
+        <el-table-column prop="nickname" label="昵称" />
+        <el-table-column prop="phone" label="手机号" />
+        <el-table-column prop="email" label="邮箱" />
+        <el-table-column prop="dept.name" label="部门" />
+        <el-table-column label="角色">
+          <template #default="{ row }">
+            <el-tag v-for="r in row.roles || []" :key="r.id" size="small" class="mr-1">{{ r.name }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column label="超级管理员" align="center">
+          <template #default="{ row }">
+            <el-tag :type="row.superAdmin ? 'warning' : 'info'" size="small">
+              {{ row.superAdmin ? '是' : '否' }}
+            </el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column label="状态" align="center">
+          <template #default="{ row }">
+            <el-tag :type="row.enabled ? 'success' : 'info'" size="small">{{ row.enabled ? '启用' : '禁用' }}</el-tag>
+          </template>
+        </el-table-column>
+        <el-table-column label="最后登录">
+          <template #default="{ row }">{{ formatTime(row.lastLoginAt) }}</template>
+        </el-table-column>
+        <el-table-column label="创建时间">
+          <template #default="{ row }">{{ formatTime(row.createdAt) }}</template>
+        </el-table-column>
+        <el-table-column label="操作" width="160" fixed="right">
+          <template #default="{ row }">
+            <el-button v-auth="'system:user:edit'" link type="primary" @click="openEdit(row)">编辑</el-button>
+            <el-button v-auth="'system:user:delete'" link type="danger" @click="remove(row)">删除</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
 
       <div class="flex justify-end mt-4">
         <AppPagination v-model:page="query.page" v-model:page-size="query.pageSize" :total="total" @change="load" />
@@ -49,6 +64,8 @@
           <el-input v-model="form.password" type="password" show-password placeholder="留空则不修改" />
         </el-form-item>
         <el-form-item label="昵称"><el-input v-model="form.nickname" /></el-form-item>
+        <el-form-item label="手机号"><el-input v-model="form.phone" /></el-form-item>
+        <el-form-item label="邮箱"><el-input v-model="form.email" /></el-form-item>
         <el-form-item label="部门">
           <el-tree-select
             v-model="form.deptId"
@@ -102,6 +119,11 @@ const form = reactive({
   deptId: null,
   roleIds: [],
 })
+
+function formatTime(t) {
+  if (!t) return '-'
+  return new Date(t).toLocaleString()
+}
 
 async function load() {
   loading.value = true

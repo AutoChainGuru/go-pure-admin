@@ -9,13 +9,18 @@
 <script setup>
 import { storeToRefs } from 'pinia'
 import { usePermissionStore } from '@/stores/permission'
+import { useAppStore } from '@/stores/app'
 
 const { keepAliveNames } = storeToRefs(usePermissionStore())
+const { refreshTick } = storeToRefs(useAppStore())
 
 function pageKey(route) {
+  let base
   if (route.name && keepAliveNames.value.includes(route.name)) {
-    return route.name
+    base = route.name
+  } else {
+    base = route.fullPath
   }
-  return route.fullPath
+  return `${base}__${refreshTick.value}`
 }
 </script>

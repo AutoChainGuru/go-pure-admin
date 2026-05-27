@@ -97,7 +97,7 @@ function onCommand(cmd) {
 }
 
 .user-trigger:hover {
-  background: #f5f7fa;
+  background: var(--layout-hover-bg, #f5f7fa);
 }
 
 .user-avatar {
@@ -113,12 +113,12 @@ function onCommand(cmd) {
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 14px;
-  color: #303133;
+  color: var(--layout-text-strong, #303133);
 }
 
 .user-arrow {
   font-size: 12px;
-  color: #909399;
+  color: var(--layout-text-muted, #909399);
 }
 
 .user-dropdown-panel {
@@ -129,7 +129,7 @@ function onCommand(cmd) {
   display: flex;
   gap: 12px;
   padding: 12px 16px;
-  border-bottom: 1px solid #ebeef5;
+  border-bottom: 1px solid var(--layout-tabs-border, #ebeef5);
 }
 
 .user-dropdown-meta {
@@ -151,7 +151,7 @@ function onCommand(cmd) {
 }
 
 .meta-value {
-  color: #303133;
+  color: var(--layout-text-strong, #303133);
   word-break: break-all;
 }
 

@@ -10,10 +10,131 @@ body,
   --el-color-primary: #4f46e5;
   /* 与 layout-main 内边距一致，用于查询区/表格区间距 */
   --layout-content-gap: 8px;
+  --layout-shell-bg: #f9fafb;
+  --layout-panel-bg: #ffffff;
+  --layout-border: #e5e7eb;
+  --layout-border-light: #f3f4f6;
+  --layout-text-strong: #1f2937;
+  --layout-text-muted: #6b7280;
+  --layout-hover-bg: #f3f4f6;
+  --layout-header-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  --layout-tabs-bg: #ffffff;
+  --layout-tabs-border: #ebeef5;
+  --layout-tab-text: #606266;
+  --layout-tab-hover-bg: #f5f7fa;
+  --layout-tab-active-bg: #ecf5ff;
+  --layout-tab-active-border: #d9ecff;
+  --page-card-bg: #ffffff;
+  --page-card-border: #f3f4f6;
+  --page-card-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --page-table-header-bg: #fafafa;
+  --page-table-stripe-bg: #fafafa;
+  --page-table-hover-bg: #f5f7fa;
+}
+
+html.dark {
+  color-scheme: dark;
+  --el-color-primary: #6366f1;
+  --layout-shell-bg: #0f172a;
+  --layout-panel-bg: #1e293b;
+  --layout-border: #334155;
+  --layout-border-light: #334155;
+  --layout-text-strong: #f1f5f9;
+  --layout-text-muted: #94a3b8;
+  --layout-hover-bg: #334155;
+  --layout-header-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  --layout-tabs-bg: #1e293b;
+  --layout-tabs-border: #334155;
+  --layout-tab-text: #94a3b8;
+  --layout-tab-hover-bg: #334155;
+  --layout-tab-active-bg: #1e3a5f;
+  --layout-tab-active-border: #334155;
+  --page-card-bg: #1e293b;
+  --page-card-border: #334155;
+  --page-card-shadow: none;
+  --page-table-header-bg: #0f172a;
+  --page-table-stripe-bg: #263349;
+  --page-table-hover-bg: #334155;
+}
+
+html.dark .layout-sidebar-menu .el-menu-item,
+html.dark .layout-sidebar-menu .el-sub-menu__title {
+  color: #94a3b8;
+}
+
+html.dark .layout-sidebar-menu .el-menu-item:hover,
+html.dark .layout-sidebar-menu .el-sub-menu__title:hover {
+  background-color: #334155;
+  color: #e2e8f0;
+}
+
+html.dark .layout-sidebar-menu .el-menu-item.is-active {
+  --sidebar-menu-active-bg: rgba(79, 70, 229, 0.2);
 }
 
 .layout-main {
   padding: var(--layout-content-gap);
+}
+
+/* 查询区 / 表格区卡片（不依赖 Uno 的 dark: 变体） */
+.layout-main .page-card {
+  background-color: var(--page-card-bg);
+  border: 1px solid var(--page-card-border);
+  box-shadow: var(--page-card-shadow);
+  color: var(--layout-text-strong);
+}
+
+.layout-main .page-layout .text-gray-800 {
+  color: var(--layout-text-strong);
+}
+
+html.dark .layout-main .page-layout .text-gray-500,
+html.dark .layout-main .page-layout .text-gray-400,
+html.dark .layout-main .text-muted {
+  color: var(--layout-text-muted);
+}
+
+/* 表格与卡片背景一致 */
+.layout-main .page-card .el-table {
+  --el-table-bg-color: var(--page-card-bg);
+  --el-table-tr-bg-color: var(--page-card-bg);
+  --el-table-header-bg-color: var(--page-table-header-bg);
+  --el-table-row-hover-bg-color: var(--page-table-hover-bg);
+  --el-table-border-color: var(--layout-border);
+  --el-table-text-color: var(--layout-text-strong);
+  --el-table-header-text-color: var(--layout-text-muted);
+  background-color: var(--page-card-bg);
+}
+
+.layout-main .page-card .el-table th.el-table__cell {
+  background-color: var(--page-table-header-bg);
+}
+
+.layout-main .page-card .el-table td.el-table__cell {
+  background-color: var(--page-card-bg);
+}
+
+.layout-main .page-card .el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+  background-color: var(--page-table-stripe-bg);
+}
+
+.layout-main .page-card .el-table__body tr:hover > td.el-table__cell {
+  background-color: var(--page-table-hover-bg) !important;
+}
+
+.layout-main .page-card .el-table__empty-block {
+  background-color: var(--page-card-bg);
+}
+
+html.dark .layout-main .page-card .el-input__wrapper,
+html.dark .layout-main .page-card .el-select__wrapper,
+html.dark .layout-main .page-card .el-textarea__inner {
+  background-color: var(--layout-shell-bg);
+}
+
+html.dark .layout-main .page-card .el-input__wrapper,
+html.dark .layout-main .page-card .el-select__wrapper {
+  box-shadow: 0 0 0 1px var(--layout-border) inset;
 }
 
 .page-layout {

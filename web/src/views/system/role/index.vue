@@ -16,15 +16,18 @@
       <el-table v-loading="loading" :data="list" stripe>
         <el-table-column prop="name" label="名称" />
         <el-table-column prop="code" label="编码" />
-        <el-table-column label="数据范围" width="130">
+        <el-table-column label="数据范围">
           <template #default="{ row }">
             {{ dataScopeOptions.find((o) => o.value === row.dataScope)?.label }}
           </template>
         </el-table-column>
-        <el-table-column label="状态" width="90">
+        <el-table-column label="状态">
           <template #default="{ row }">
             <el-tag :type="row.enabled ? 'success' : 'info'" size="small">{{ row.enabled ? '启用' : '禁用' }}</el-tag>
           </template>
+        </el-table-column>
+        <el-table-column label="创建时间">
+          <template #default="{ row }">{{ formatTime(row.createdAt) }}</template>
         </el-table-column>
         <el-table-column label="操作" width="220" fixed="right">
           <template #default="{ row }">
@@ -127,6 +130,11 @@ const query = reactive({ page: 1, pageSize: 10, keyword: '' })
 const form = reactive({
   name: '', code: '', sort: 0, enabled: true, dataScope: 5, description: '', deptIds: [],
 })
+
+function formatTime(t) {
+  if (!t) return '-'
+  return new Date(t).toLocaleString()
+}
 
 async function load() {
   loading.value = true

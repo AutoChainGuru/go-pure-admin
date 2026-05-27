@@ -25,19 +25,19 @@
 
     <div class="page-card">
       <el-table v-loading="loading" :data="list" stripe>
-      <el-table-column prop="username" label="用户名" width="120" />
-      <el-table-column prop="nickname" label="昵称" width="120" />
-      <el-table-column label="状态" width="88">
+      <el-table-column prop="username" label="用户名" />
+      <el-table-column prop="nickname" label="昵称" />
+      <el-table-column label="状态">
         <template #default="{ row }">
           <el-tag :type="row.status === 1 ? 'success' : 'danger'" size="small">
             {{ row.status === 1 ? '成功' : '失败' }}
           </el-tag>
         </template>
       </el-table-column>
-      <el-table-column prop="message" label="说明" min-width="160" show-overflow-tooltip />
-      <el-table-column prop="ip" label="IP" width="130" />
-      <el-table-column prop="userAgent" label="浏览器" min-width="200" show-overflow-tooltip />
-      <el-table-column label="登录时间" width="170">
+      <el-table-column prop="message" label="说明" />
+      <el-table-column prop="ip" label="IP" />
+      <el-table-column prop="userAgent" label="浏览器" min-width="350"/>
+      <el-table-column label="登录时间">
         <template #default="{ row }">{{ formatTime(row.createdAt) }}</template>
       </el-table-column>
     </el-table>

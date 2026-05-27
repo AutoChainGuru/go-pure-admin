@@ -2,9 +2,9 @@
   <div class="page-card">
     <div class="mb-4"><el-button type="primary" @click="openCreate()">新增部门</el-button></div>
     <el-table v-loading="loading" :data="tree" row-key="id" default-expand-all>
-      <el-table-column prop="name" label="部门名称" min-width="200" />
-      <el-table-column prop="sort" label="排序" width="80" />
-      <el-table-column label="状态" width="90">
+      <el-table-column prop="name" label="部门名称" />
+      <el-table-column prop="sort" label="排序" />
+      <el-table-column label="状态">
         <template #default="{ row }">
           <el-tag :type="row.enabled ? 'success' : 'info'" size="small">{{ row.enabled ? '启用' : '禁用' }}</el-tag>
         </template>

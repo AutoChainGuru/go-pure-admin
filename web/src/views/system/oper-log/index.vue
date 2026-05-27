@@ -25,21 +25,21 @@
 
     <div class="page-card">
       <el-table v-loading="loading" :data="list" stripe>
-      <el-table-column prop="module" label="模块" width="110" />
-      <el-table-column prop="action" label="操作" width="120" />
-      <el-table-column prop="username" label="操作人" width="100" />
-      <el-table-column prop="method" label="方法" width="90" />
-      <el-table-column prop="path" label="路径" min-width="200" show-overflow-tooltip />
-      <el-table-column label="状态" width="72">
+      <el-table-column prop="module" label="模块" />
+      <el-table-column prop="action" label="操作" />
+      <el-table-column prop="username" label="操作人" />
+      <el-table-column prop="method" label="方法" />
+      <el-table-column prop="path" label="路径" />
+      <el-table-column label="状态">
         <template #default="{ row }">
           <el-tag :type="row.status === 1 ? 'success' : 'danger'" size="small">
             {{ row.status === 1 ? '成功' : '失败' }}
           </el-tag>
         </template>
       </el-table-column>
-      <el-table-column prop="durationMs" label="耗时(ms)" width="96" align="right" />
-      <el-table-column prop="ip" label="IP" width="120" />
-      <el-table-column label="时间" width="170">
+      <el-table-column prop="durationMs" label="耗时(ms)" />
+      <el-table-column prop="ip" label="IP" />
+      <el-table-column label="时间">
         <template #default="{ row }">{{ formatTime(row.createdAt) }}</template>
       </el-table-column>
       <el-table-column label="详情" width="72" fixed="right">

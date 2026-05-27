@@ -1,5 +1,5 @@
 <template>
-  <div class="layout-tabs shrink-0 bg-white">
+  <div class="layout-tabs shrink-0">
     <el-scrollbar>
       <transition-group
         name="tab-list"
@@ -136,8 +136,8 @@ onUnmounted(() => {
   z-index: 9;
   height: 42px;
   box-sizing: border-box;
-  background: #fff;
-  border-bottom: 1px solid #ebeef5;
+  background: var(--layout-tabs-bg, #fff);
+  border-bottom: 1px solid var(--layout-tabs-border, #ebeef5);
 }
 
 .layout-tabs :deep(.el-scrollbar) {
@@ -188,7 +188,7 @@ onUnmounted(() => {
   padding: 0 8px;
   font-size: 13px;
   line-height: 1;
-  color: #606266;
+  color: var(--layout-tab-text, #606266);
   border: 1px solid transparent;
   border-radius: 4px 4px 0 0;
   cursor: pointer;
@@ -206,15 +206,15 @@ onUnmounted(() => {
 }
 
 .tab-item:hover {
-  color: #409eff;
-  background: #f5f7fa;
+  color: var(--el-color-primary);
+  background: var(--layout-tab-hover-bg, #f5f7fa);
 }
 
 .tab-item.is-active {
-  color: #409eff;
-  background: #ecf5ff;
-  border-color: #d9ecff;
-  border-bottom-color: #fff;
+  color: var(--el-color-primary);
+  background: var(--layout-tab-active-bg, #ecf5ff);
+  border-color: var(--layout-tab-active-border, #d9ecff);
+  border-bottom-color: var(--layout-tabs-bg, #fff);
   box-shadow: 0 1px 4px rgb(64 158 255 / 12%);
 }
 
@@ -243,8 +243,8 @@ onUnmounted(() => {
   padding: 4px 0;
   min-width: 128px;
   list-style: none;
-  background: #fff;
-  border: 1px solid #e4e7ed;
+  background: var(--layout-panel-bg, #fff);
+  border: 1px solid var(--layout-border, #e4e7ed);
   border-radius: 4px;
   box-shadow: 0 2px 12px rgb(0 0 0 / 10%);
 }

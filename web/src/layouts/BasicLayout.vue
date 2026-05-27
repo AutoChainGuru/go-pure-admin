@@ -1,12 +1,12 @@
 <template>
-  <div class="h-screen flex bg-gray-50">
+  <div class="layout-shell h-screen flex">
     <aside
-      class="flex flex-col bg-white border-r border-gray-200 transition-all duration-200"
+      class="layout-panel layout-aside flex flex-col border-r transition-all duration-200"
       :class="collapsed ? 'w-16' : 'w-56'"
     >
-      <div class="h-14 flex-center border-b border-gray-100 px-3 gap-2">
+      <div class="layout-brand h-14 flex-center border-b px-3 gap-2">
         <div class="w-8 h-8 rounded-lg bg-indigo-500 flex-center text-white font-bold text-sm">P</div>
-        <span v-show="!collapsed" class="font-semibold text-gray-800 truncate">Pure Admin</span>
+        <span v-show="!collapsed" class="layout-brand-title font-semibold truncate">Pure Admin</span>
       </div>
       <el-scrollbar class="flex-1">
         <el-menu
@@ -21,14 +21,28 @@
     </aside>
 
     <div class="flex-1 flex flex-col min-w-0">
-      <header class="layout-header h-14 shrink-0 bg-white flex items-center justify-between px-4">
+      <header class="layout-panel layout-header h-14 shrink-0 flex items-center justify-between px-4">
         <div class="flex items-center gap-3">
           <el-button text @click="collapsed = !collapsed">
             <el-icon :size="18"><component :is="collapsed ? Expand : Fold" /></el-icon>
           </el-button>
           <LayoutBreadcrumb />
         </div>
-        <UserInfoDropdown @logout="logout" />
+        <div class="header-toolbar flex items-center gap-1">
+          <el-tooltip content="刷新页面" placement="bottom">
+            <el-button class="header-tool-btn" text circle @click="appStore.refreshPage()">
+              <el-icon :size="18"><Refresh /></el-icon>
+            </el-button>
+          </el-tooltip>
+          <el-tooltip :content="appStore.isDark ? '切换浅色' : '切换深色'" placement="bottom">
+            <el-button class="header-tool-btn" text circle @click="appStore.toggleTheme()">
+              <el-icon :size="18">
+                <component :is="appStore.isDark ? Sunny : Moon" />
+              </el-icon>
+            </el-button>
+          </el-tooltip>
+          <UserInfoDropdown @logout="logout" />
+        </div>
       </header>
       <LayoutTabs />
       <main class="layout-main flex-1 overflow-auto">
@@ -45,14 +59,16 @@ import { resetRouter } from '@/router'
 import { useUserStore } from '@/stores/user'
 import { usePermissionStore } from '@/stores/permission'
 import { useTabsStore } from '@/stores/tabs'
+import { useAppStore } from '@/stores/app'
 import PageRouterView from '@/components/PageRouterView.vue'
 import SidebarItem from '@/components/SidebarItem.vue'
 import LayoutTabs from '@/components/LayoutTabs.vue'
 import LayoutBreadcrumb from '@/components/LayoutBreadcrumb.vue'
 import UserInfoDropdown from '@/components/UserInfoDropdown.vue'
-import { Fold, Expand } from '@element-plus/icons-vue'
+import { Fold, Expand, Refresh, Moon, Sunny } from '@element-plus/icons-vue'
 
 const route = useRoute()
+const appStore = useAppStore()
 const router = useRouter()
 const userStore = useUserStore()
 const permStore = usePermissionStore()
@@ -78,10 +94,36 @@ async function logout() {
 </script>
 
 <style scoped>
+.layout-shell {
+  background: var(--layout-shell-bg, #f9fafb);
+}
+
+.layout-panel {
+  background: var(--layout-panel-bg, #fff);
+  border-color: var(--layout-border, #e5e7eb);
+}
+
+.layout-brand {
+  border-color: var(--layout-border-light, #f3f4f6);
+}
+
+.layout-brand-title {
+  color: var(--layout-text-strong, #1f2937);
+}
+
 .layout-header {
   position: relative;
   z-index: 10;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--layout-header-shadow, 0 1px 4px rgba(0, 0, 0, 0.06));
+}
+
+.header-toolbar :deep(.header-tool-btn) {
+  color: var(--layout-text-muted, #6b7280);
+}
+
+.header-toolbar :deep(.header-tool-btn:hover) {
+  color: var(--el-color-primary);
+  background: var(--layout-hover-bg, #f3f4f6);
 }
 
 .layout-sidebar-menu {
