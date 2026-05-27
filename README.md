@@ -8,11 +8,11 @@
 
 **登录页**
 
-![登录页](docs/images/Login.png)
+![登录页](https://raw.githubusercontent.com/AutoChainGuru/go-pure-admin/main/docs/images/Login.png)
 
 **工作台**
 
-![工作台](docs/images/Dashboard.png)
+![工作台](https://raw.githubusercontent.com/AutoChainGuru/go-pure-admin/main/docs/images/Dashboard.png)
 
 ---
 
