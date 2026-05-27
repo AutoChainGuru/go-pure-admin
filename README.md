@@ -8,11 +8,11 @@
 
 **登录页**
 
-![登录页](docs/images/login.png)
+![登录页](docs/images/Login.png)
 
 **工作台**
 
-![工作台](docs/images/dashboard.png)
+![工作台](docs/images/Dashboard.png)
 
 ---
 
