@@ -11,7 +11,7 @@ database:
   sslmode: disable
 
 jwt:
-  secret: go-pure-admin-jwt-secret
+  secret: pure-go-admin-jwt-secret
   expire_hours: 72
 
 log:

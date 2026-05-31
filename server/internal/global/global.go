@@ -1,7 +1,7 @@
 package global
 
 import (
-	"go-pure-admin/server/internal/config"
+	"pure-go-admin/server/internal/config"
 
 	"go.uber.org/zap"
 	"gorm.io/gorm"

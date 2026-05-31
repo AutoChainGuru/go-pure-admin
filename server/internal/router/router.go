@@ -1,8 +1,8 @@
 package router
 
 import (
-	"go-pure-admin/server/internal/handler"
-	"go-pure-admin/server/internal/middleware"
+	"pure-go-admin/server/internal/handler"
+	"pure-go-admin/server/internal/middleware"
 
 	"github.com/gin-gonic/gin"
 )

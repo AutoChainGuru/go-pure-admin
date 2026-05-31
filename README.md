@@ -1,4 +1,4 @@
-# go-pure-admin
+# pure-go-admin
 
 一款**轻量、可二次开发**的后台权限管理系统：后端用 Go 提供 REST API，前端用 Vue 3 实现动态菜单与页面权限，适合作为企业内部系统、或学习「RBAC + 前后端分离」的脚手架。
 
@@ -144,7 +144,7 @@ npm run build
 ## 目录结构
 
 ```
-go-pure-admin/
+pure-go-admin/
 ├── docs/              # 数据库参考脚本与权限模型说明（pg.sql）
 ├── server/            # Go 后端
 │   ├── config.yaml    # 默认配置

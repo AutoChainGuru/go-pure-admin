@@ -1,6 +1,6 @@
 package util
 
-import "go-pure-admin/server/internal/model"
+import "pure-go-admin/server/internal/model"
 
 func BuildMenuTree(items []model.SysMenu, parentID *int64) []model.SysMenu {
 	var roots []model.SysMenu

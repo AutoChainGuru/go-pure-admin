@@ -3,9 +3,9 @@ package middleware
 import (
 	"strings"
 
-	"go-pure-admin/server/internal/global"
-	"go-pure-admin/server/internal/pkg/jwtutil"
-	"go-pure-admin/server/internal/pkg/response"
+	"pure-go-admin/server/internal/global"
+	"pure-go-admin/server/internal/pkg/jwtutil"
+	"pure-go-admin/server/internal/pkg/response"
 
 	"github.com/gin-gonic/gin"
 )

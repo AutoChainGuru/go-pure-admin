@@ -4,9 +4,9 @@ import (
 	"errors"
 	"strings"
 
-	"go-pure-admin/server/internal/global"
-	"go-pure-admin/server/internal/model"
-	"go-pure-admin/server/internal/util"
+	"pure-go-admin/server/internal/global"
+	"pure-go-admin/server/internal/model"
+	"pure-go-admin/server/internal/util"
 )
 
 func validateMenu(m *model.SysMenu) error {

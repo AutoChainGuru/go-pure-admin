@@ -3,7 +3,7 @@ package middleware
 import (
 	"time"
 
-	"go-pure-admin/server/internal/global"
+	"pure-go-admin/server/internal/global"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"

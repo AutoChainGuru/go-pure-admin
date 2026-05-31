@@ -1,9 +1,9 @@
 package handler
 
 import (
-	"go-pure-admin/server/internal/middleware"
-	"go-pure-admin/server/internal/pkg/response"
-	"go-pure-admin/server/internal/service"
+	"pure-go-admin/server/internal/middleware"
+	"pure-go-admin/server/internal/pkg/response"
+	"pure-go-admin/server/internal/service"
 
 	"github.com/gin-gonic/gin"
 )

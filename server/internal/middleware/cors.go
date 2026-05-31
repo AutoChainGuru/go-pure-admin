@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"go-pure-admin/server/internal/global"
+	"pure-go-admin/server/internal/global"
 
 	"github.com/gin-gonic/gin"
 )

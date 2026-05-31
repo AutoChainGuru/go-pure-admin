@@ -4,10 +4,10 @@ import (
 	"errors"
 	"time"
 
-	"go-pure-admin/server/internal/global"
-	"go-pure-admin/server/internal/model"
-	"go-pure-admin/server/internal/pkg/jwtutil"
-	"go-pure-admin/server/internal/util"
+	"pure-go-admin/server/internal/global"
+	"pure-go-admin/server/internal/model"
+	"pure-go-admin/server/internal/pkg/jwtutil"
+	"pure-go-admin/server/internal/util"
 
 	"github.com/samber/lo"
 	"golang.org/x/crypto/bcrypt"

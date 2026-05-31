@@ -1,7 +1,7 @@
 package util
 
 import (
-	"go-pure-admin/server/internal/model"
+	"pure-go-admin/server/internal/model"
 
 	"github.com/samber/lo"
 	"gorm.io/gorm"

@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { ref, watch } from 'vue'
 
 export const DASHBOARD_PATH = '/dashboard'
-const TABS_STORAGE_KEY = 'go-pure-admin-tabs'
+const TABS_STORAGE_KEY = 'pure-go-admin-tabs'
 
 function createDashboardTab() {
   return {

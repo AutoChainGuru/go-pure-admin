@@ -3,9 +3,9 @@ package service
 import (
 	"errors"
 
-	"go-pure-admin/server/internal/global"
-	"go-pure-admin/server/internal/model"
-	"go-pure-admin/server/internal/util"
+	"pure-go-admin/server/internal/global"
+	"pure-go-admin/server/internal/model"
+	"pure-go-admin/server/internal/util"
 )
 
 type DeptService struct{}

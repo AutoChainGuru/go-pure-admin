@@ -1,8 +1,8 @@
 package database
 
 import (
-	"go-pure-admin/server/internal/config"
-	"go-pure-admin/server/internal/model"
+	"pure-go-admin/server/internal/config"
+	"pure-go-admin/server/internal/model"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

@@ -4,7 +4,7 @@
       <div class="page-card shadow-md!">
         <div class="text-center mb-8">
           <div class="w-12 h-12 mx-auto rounded-xl bg-indigo-500 flex-center text-white text-xl font-bold mb-3">P</div>
-          <h1 class="text-2xl font-semibold text-gray-800 m-0">go-pure-admin</h1>
+          <h1 class="text-2xl font-semibold text-gray-800 m-0">pure-go-admin</h1>
           <p class="text-muted mt-2">简洁现代的管理后台</p>
         </div>
         <el-form size="large" @submit.prevent="onSubmit">

@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"go-pure-admin/server/internal/model"
+	"pure-go-admin/server/internal/model"
 )
 
 func BuildAncestors(parent *model.SysDept) string {

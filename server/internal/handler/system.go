@@ -3,10 +3,10 @@ package handler
 import (
 	"strconv"
 
-	"go-pure-admin/server/internal/model"
-	"go-pure-admin/server/internal/pkg/response"
-	"go-pure-admin/server/internal/service"
-	"go-pure-admin/server/internal/util"
+	"pure-go-admin/server/internal/model"
+	"pure-go-admin/server/internal/pkg/response"
+	"pure-go-admin/server/internal/service"
+	"pure-go-admin/server/internal/util"
 
 	"github.com/gin-gonic/gin"
 )

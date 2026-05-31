@@ -5,12 +5,12 @@ import (
 	"os"
 	"path/filepath"
 
-	"go-pure-admin/server/internal/config"
-	"go-pure-admin/server/internal/database"
-	"go-pure-admin/server/internal/global"
-	"go-pure-admin/server/internal/model"
-	"go-pure-admin/server/internal/pkg/logger"
-	"go-pure-admin/server/internal/router"
+	"pure-go-admin/server/internal/config"
+	"pure-go-admin/server/internal/database"
+	"pure-go-admin/server/internal/global"
+	"pure-go-admin/server/internal/model"
+	"pure-go-admin/server/internal/pkg/logger"
+	"pure-go-admin/server/internal/router"
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"

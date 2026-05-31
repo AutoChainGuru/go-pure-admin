@@ -4,7 +4,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"go-pure-admin/server/internal/config"
+	"pure-go-admin/server/internal/config"
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
